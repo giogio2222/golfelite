@@ -1,8 +1,8 @@
 // Navbar and Back to Top scroll behavior
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     const backToTop = document.getElementById('backToTop');
-    
+
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
         if (backToTop) backToTop.classList.add('show');
@@ -15,7 +15,7 @@ window.addEventListener('scroll', function() {
 // Back to top click event
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {
-    backToTop.addEventListener('click', function() {
+    backToTop.addEventListener('click', function () {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -39,10 +39,10 @@ function toggleTOC() {
 // Blog Search Functionality
 const blogSearch = document.getElementById('blogSearch');
 if (blogSearch) {
-    blogSearch.addEventListener('input', function(e) {
+    blogSearch.addEventListener('input', function (e) {
         const searchTerm = e.target.value.toLowerCase();
         const articleCards = document.querySelectorAll('.blog-card');
-        
+
         articleCards.forEach(card => {
             const title = card.querySelector('.card-title').innerText.toLowerCase();
             if (title.includes(searchTerm)) {
@@ -53,3 +53,15 @@ if (blogSearch) {
         });
     });
 }
+
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+});
