@@ -59,9 +59,17 @@ h6 {
 }
 
 .navbar.scrolled {
-    background: var(--white);
+    background: var(--white) !important;
     padding: 12px 0;
     box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 991px) {
+    .navbar {
+        background: var(--white) !important;
+        padding: 12px 0;
+        box-shadow: var(--shadow-sm);
+    }
 }
 
 .navbar-brand {
